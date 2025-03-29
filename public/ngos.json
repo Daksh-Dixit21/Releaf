@@ -1,0 +1,418 @@
+[
+    {
+        "name": "Smile Foundation",
+        "lat": 28.6139,
+        "lon": 77.2090,
+        "website": "https://www.smilefoundationindia.org/",
+        "focus": "Disaster Relief, Education, Healthcare",
+        "location": "Delhi"
+    },
+    {
+        "name": "Goonj",
+        "lat": 28.5276,
+        "lon": 77.0689,
+        "website": "https://goonj.org/",
+        "focus": "Disaster Relief, Clothing, Food Distribution",
+        "location": "Delhi"
+    },
+    {
+        "name": "Rapid Response",
+        "lat": 13.0827,
+        "lon": 80.2707,
+        "website": "https://www.rapidresponse.org.in/",
+        "focus": "Flood Relief, Emergency Shelters, Food Aid",
+        "location": "Chennai, Tamil Nadu"
+    },
+    {
+        "name": "SEEDS India",
+        "lat": 28.6139,
+        "lon": 77.2090,
+        "website": "https://www.seedsindia.org/",
+        "focus": "Earthquake Relief, Community Resilience",
+        "location": "Delhi"
+    },
+    {
+        "name": "Save the Children India",
+        "lat": 19.0760,
+        "lon": 72.8777,
+        "website": "https://www.savethechildren.in/",
+        "focus": "Disaster Relief, Child Welfare",
+        "location": "Mumbai, Maharashtra"
+    },
+    {
+        "name": "Oxfam India",
+        "lat": 28.7041,
+        "lon": 77.1025,
+        "website": "https://www.oxfamindia.org/",
+        "focus": "Cyclone Relief, Women & Children Aid",
+        "location": "Delhi"
+    },
+    {
+        "name": "Karuna Trust",
+        "lat": 12.9716,
+        "lon": 77.5946,
+        "website": "https://www.karunatrust.org/",
+        "focus": "Medical Relief, Rural Healthcare",
+        "location": "Bangalore, Karnataka"
+    },
+    {
+        "name": "Uday Foundation",
+        "lat": 28.6448,
+        "lon": 77.2167,
+        "website": "https://www.udayfoundation.org/",
+        "focus": "Food Aid, Disaster Preparedness",
+        "location": "Delhi"
+    },
+    {
+        "name": "Hindrise Social Welfare Foundation",
+        "lat": 28.7041,
+        "lon": 77.1025,
+        "website": "https://hindrise.org/disaster-response",
+        "focus": "Disaster Response, Rehabilitation",
+        "location": "Delhi"
+    },
+    {
+        "name": "Annamrita Foundation",
+        "lat": 19.2183,
+        "lon": 72.9781,
+        "website": "https://www.annamrita.org/",
+        "focus": "Food Distribution, Flood Relief",
+        "location": "Thane, Maharashtra"
+    },
+    {
+        "name": "Hemkunt Foundation",
+        "lat": 28.4595,
+        "lon": 77.0266,
+        "website": "https://hemkuntfoundation.com/",
+        "focus": "Food Distribution, Emergency Shelters",
+        "location": "Gurugram, Haryana"
+    },
+    {
+        "name": "Prayas Juvenile Aid Centre",
+        "lat": 28.6692,
+        "lon": 77.4538,
+        "website": "https://www.prayaschildren.org/",
+        "focus": "Childcare, Disaster Support",
+        "location": "Ghaziabad, Uttar Pradesh"
+    },
+    {
+        "name": "Doctors For You",
+        "lat": 18.5204,
+        "lon": 73.8567,
+        "website": "https://www.doctorsforyou.org/",
+        "focus": "Medical Relief, Disaster Healthcare",
+        "location": "Pune, Maharashtra"
+    },
+    {
+        "name": "North-East Affected Area Development Society (NEADS)",
+        "lat": 26.6510,
+        "lon": 94.1771,
+        "website": "https://neadsassam.org/",
+        "focus": "Flood Relief, Livelihood Support",
+        "location": "Jorhat, Assam"
+    },
+    {
+        "name": "Vasudhaiva Kutumbakam Welfare Foundation",
+        "lat": 25.5941,
+        "lon": 85.1376,
+        "website": "https://www.vasudhaivakutumbakam.org/",
+        "focus": "Disaster Relief, Food & Water Supply",
+        "location": "Patna, Bihar"
+    },
+    {
+        "name": "Bharat Sevashram Sangha",
+        "lat": 22.5726,
+        "lon": 88.3639,
+        "website": "https://www.bharatsevashramsangha.org/",
+        "focus": "Cyclone Relief, Earthquake Relief",
+        "location": "Kolkata, West Bengal"
+    },
+    {
+        "name": "India Red Cross Society",
+        "lat": 28.6353,
+        "lon": 77.2250,
+        "website": "https://indianredcross.org/",
+        "focus": "Blood Donation, Medical Aid, Disaster Response",
+        "location": "Delhi"
+    },
+    {
+        "name": "Humanitarian Aid International",
+        "lat": 28.6139,
+        "lon": 77.2090,
+        "website": "https://hai-india.org/",
+        "focus": "Disaster Preparedness, Flood & Cyclone Relief",
+        "location": "Delhi"
+    },
+    {
+        "name": "Centre for Development Initiatives (CDI)",
+        "lat": 26.1445,
+        "lon": 91.7362,
+        "website": "https://www.cdi.org.in/",
+        "focus": "Livelihood Support, Flood Recovery",
+        "location": "Guwahati, Assam"
+    },
+    {
+        "name": "Jan Sahas",
+        "lat": 23.2599,
+        "lon": 77.4126,
+        "website": "https://www.jansahas.org/",
+        "focus": "Disaster Recovery, Migrant Worker Support",
+        "location": "Bhopal, Madhya Pradesh"
+    },
+    {
+        "name": "ActionAid India",
+        "lat": 28.6353,
+        "lon": 77.2250,
+        "website": "https://www.actionaidindia.org/",
+        "focus": "Climate Change Resilience, Disaster Risk Reduction",
+        "location": "Delhi"
+    },
+    {
+        "name": "Kudumbashree",
+        "lat": 10.8505,
+        "lon": 76.2711,
+        "website": "https://www.kudumbashree.org/",
+        "focus": "Flood Relief, Women's Empowerment",
+        "location": "Kerala"
+    },
+    {
+        "name": "Hand in Hand India",
+        "lat": 12.2958,
+        "lon": 76.6394,
+        "website": "https://www.hihindia.org/",
+        "focus": "Livelihood Recovery, Disaster Management",
+        "location": "Mysore, Karnataka"
+    },
+        {
+            "name": "Uttar Pradesh State Disaster Management Authority (UPSDMA)",
+            "lat": 26.8467,
+            "lon": 80.9462,
+            "website": "http://upsdma.up.nic.in/",
+            "focus": "Disaster Management, Preparedness, Response, Mitigation",
+            "location": "Lucknow, Uttar Pradesh"
+        },
+        {
+            "name": "District Disaster Management Authority (DDMA) - Lucknow",
+            "lat": 26.8467,
+            "lon": 80.9462,
+            "website": "District specific, often linked to district administration websites.",
+            "focus": "Local Disaster Response, Coordination",
+            "location": "Lucknow, Uttar Pradesh"
+        },
+        {
+            "name": "Prayas Juvenile Aid Centre",
+            "lat": 28.6692,
+            "lon": 77.4538,
+            "website": "https://www.prayaschildren.org/",
+            "focus": "Childcare, Disaster Support",
+            "location": "Ghaziabad, Uttar Pradesh"
+        },
+        {
+            "name": "Ganga Flood Control Commission",
+            "lat": 25.4358,
+            "lon": 81.8463,
+            "website": "http://fwd.bih.nic.in/gffc.htm",
+            "focus": "Flood Control, River Management",
+            "location": "Prayagraj, Uttar Pradesh"
+        },
+        {
+            "name": "Rapid Action Disaster Relief (RADR)",
+            "lat": 27.9400,
+            "lon": 78.0800,
+            "website": "https://www.radrindia.org/",
+            "focus": "Disaster Relief, Rescue, Rehabilitation",
+            "location": "Aligarh, Uttar Pradesh"
+        },
+        {
+            "name": "Human Welfare Association",
+            "lat": 25.3176,
+            "lon": 82.9739,
+            "website": "http://hwavns.org/",
+            "focus": "Community Development, Disaster Relief",
+            "location": "Varanasi, Uttar Pradesh"
+        },
+        {
+            "name": "Rural Development Society (RDS)",
+            "lat": 26.7606,
+            "lon": 83.3732,
+            "website": "http://www.rdsgorakhpur.org/",
+            "focus": "Rural Development, Disaster Preparedness",
+            "location": "Gorakhpur, Uttar Pradesh"
+        },
+        {
+            "name": "Seva Bharti Uttar Pradesh",
+            "lat": 26.8467,
+            "lon": 80.9462,
+            "website": "http://www.sevabharati.org/",
+            "focus": "Social Service, Disaster Relief",
+            "location": "Lucknow, Uttar Pradesh"
+        },
+        {
+            "name": "Agrasar",
+            "lat": 26.8467,
+            "lon": 80.9462,
+            "website": "http://agrasar.org/index.php",
+            "focus": "Disaster relief, Women empowerment, education",
+            "location": "Lucknow, Uttar Pradesh"
+        },
+        {
+            "name": "Uttar Pradesh Voluntary Health Association (UPVHA)",
+            "lat": 26.8467,
+            "lon": 80.9462,
+            "website": "http://upvha.org/",
+            "focus": "Health, Disaster Response",
+            "location": "Lucknow, Uttar Pradesh"
+        },
+        {
+            "name": "Gramin Vikas Vigyan Samiti (GRAVIS)",
+            "lat": 26.5511,
+            "lon": 82.1583,
+            "website": "http://www.gravis.org.in/",
+            "focus": "Drought Relief, Water Conservation",
+            "location": "Sultanpur, Uttar Pradesh"
+        },
+        {
+            "name": "Gorakhpur Environmental Action Group (GEAG)",
+            "lat": 26.7606,
+            "lon": 83.3732,
+            "website": "http://www.geag.org/",
+            "focus": "Environment, Disaster Mitigation",
+            "location": "Gorakhpur, Uttar Pradesh"
+        },
+        {
+            "name": "Vatsalya",
+            "lat": 25.3176,
+            "lon": 82.9739,
+            "website": "http://www.vatsalya.org/",
+            "focus": "Child Development, Disaster Relief",
+            "location": "Varanasi, Uttar Pradesh"
+        },
+        {
+            "name": "Sahbhagi Shikshan Kendra",
+            "lat": 25.4358,
+            "lon": 81.8463,
+            "website": "http://www.sahbhagi.org/",
+            "focus": "Natural Resource Management, Disaster Risk Reduction",
+            "location": "Prayagraj, Uttar Pradesh"
+        },
+        {
+            "name": "Caritas India",
+            "lat": 28.6139,
+            "lon": 77.2090,
+            "website": "https://www.caritasindia.org/",
+            "focus": "Disaster Relief, Development",
+            "location": "Delhi (National, active in UP)"
+        },
+        {
+            "name": "CARE India",
+            "lat": 28.5499,
+            "lon": 77.2662,
+            "website": "https://www.careindia.org/",
+            "focus": "Poverty, Disaster Response",
+            "location": "Delhi (National, active in UP)"
+        },
+        {
+            "name": "Catholic Relief Services (CRS)",
+            "lat": 28.6139,
+            "lon": 77.2090,
+            "website": "https://www.crs.org/",
+            "focus": "International Aid, Disaster Relief",
+            "location": "Delhi (National, active in UP)"
+        },
+        {
+            "name": "Plan India",
+            "lat": 28.5499,
+            "lon": 77.2662,
+            "website": "https://www.planindia.org/",
+            "focus": "Child Rights, Disaster Relief",
+            "location": "Delhi (National, active in UP)"
+        },
+        {
+            "name": "World Vision India",
+            "lat": 13.0827,
+            "lon": 80.2707,
+            "website": "https://www.worldvision.in/",
+            "focus": "Child Development, Disaster Response",
+            "location": "Chennai (National, active in UP)"
+        },
+        {
+            "name": "Ramakrishna Mission",
+            "lat": 22.5726,
+            "lon": 88.3639,
+            "website": "https://belurmath.org/",
+            "focus": "Spiritual, Social Service, Disaster Relief",
+            "location": "Kolkata (National, active in UP)"
+        },
+        {
+            "name": "Swades Foundation",
+            "lat": 19.0760,
+            "lon": 72.8777,
+            "website": "https://www.swadesfoundation.org/",
+            "focus": "Rural Empowerment, Disaster Relief",
+            "location": "Mumbai (National, active in UP)"
+        },
+        {
+            "name": "Arpan Seva Sansthan",
+            "lat": 27.1767,
+            "lon": 78.0081,
+            "website": "No website found",
+            "focus": "Social Development, Disaster Relief",
+            "location": "Agra, Uttar Pradesh"
+        },
+        {
+            "name": "Lok Bharti",
+            "lat": 26.8467,
+            "lon": 80.9462,
+            "website": "No website found",
+            "focus": "Rural Development, Disaster Relief",
+            "location": "Lucknow, Uttar Pradesh"
+        },
+        {
+            "name": "Shramik Bharti",
+            "lat": 26.4499,
+            "lon": 80.3533,
+            "website": "http://www.shramikbharti.org/",
+            "focus": "Livelihoods, Disaster Recovery",
+            "location": "Kanpur, Uttar Pradesh"
+        },
+        {
+            "name": "Swami Vivekananda Youth Movement (SVYM)",
+            "lat": 12.2958,
+            "lon": 76.6394,
+            "website": "https://www.svym.org/",
+            "focus": "Health, Education, Disaster Relief",
+            "location": "Mysore (National, active in UP)"
+        },
+        {
+            "name": "BAIF Development Research Foundation",
+            "lat": 18.5204,
+            "lon": 73.8567,
+            "website": "https://www.baif.org.in/",
+            "focus": "Rural Development, Natural Resource Management, Disaster Resilience",
+            "location": "Pune (National, active in UP)"
+        },
+        {
+            "name": "MYRADA",
+            "lat": 12.9716,
+            "lon": 77.5946,
+            "website": "https://www.myrada.org/",
+            "focus": "Development, Disaster Preparedness",
+            "location": "Bangalore (National, active in UP)"
+        },
+        {
+            "name": "Seva Mandir",
+            "lat": 24.5854,
+            "lon": 73.7125,
+            "website": "https://www.sevamandir.org/",
+            "focus": "Rural Development, Disaster Relief",
+            "location": "Udaipur (National, active in UP)"
+        },
+        {
+            "name": "Tarun Bharat Sangh",
+            "lat": 27.5600,
+            "lon": 76.5700,
+            "website": "http://www.tarunbharatsangh.in/",
+            "focus": "Water Conservation, Disaster Mitigation",
+            "location": "Alwar (National, active in UP)"
+        }
+]

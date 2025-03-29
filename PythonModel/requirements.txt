@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pillow
+easyocr
+google-generativeai
+spacy
+ 

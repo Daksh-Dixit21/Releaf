@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Tailwind  -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- style.css -->
+     <link rel="stylesheet" href="/css/style.css">
+
+     <!-- map library -->
+     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <style>
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  </style>
+</head>
+<body>
+  <!--  <a href="/sos">Send an SOS</a> | <a href="/package">Create a Package</a> | <a href="/blogs">View Blogs</a> | <a href="/ocr">Upload File</a> | <a href="/helper"> Find Helpers</a> -->
+  <header class="bg-gray-800 text-white py-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <a href="/" class="text-2xl font-bold tracking-wide">
+            Re-Leaf Link
+          </a>
+          <!-- Navigation -->
+          <nav class=" md:flex space-x-6">
+            <a href="#home" class="hover:text-blue-400 transition duration-300">
+              Home
+            </a>
+            <span id="dropmenu">
+              <a href="#features" class="hover:text-blue-400 transition duration-300 flex  items-center gap-3">
+                Features <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                  </svg>
+              </a>
+              <div class="dropdown">
+                <ul>
+                  <li><a href="/ocr">Know Your Product</a></li>
+                  <li><a href="/package">Create a relief package</a></li>
+                  <li><a href="/blogs">Survival Tips & Blogs</a></li>
+                </ul>
+              </div>
+            </span>
+            <a href="/helper" class="hover:text-blue-400 transition duration-300">
+              Request SOS
+            </a> 
+            <a href="#contact" class="hover:text-blue-400 transition duration-300">
+              Contact Us
+            </a>
+             
+          </nav>
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden text-white focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+  </header>
+      
+
+    <section class="hero-pattern pt-28 pb-20 md:pt-32 md:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row items-center justify-between">
+            <!-- Left Side Content -->
+            <div class="w-full md:w-1/2 mb-10 md:mb-0">
+              <h1 class="font-sans text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+                Connecting Relief
+                <span class="text-blue-400">When It Matters Most</span>
+              </h1>
+              <p class="text-white text-lg md:text-xl opacity-90 mb-8">
+                Releaf Link bridges the gap between those in need and organizations ready to help during disasters. Get immediate assistance or offer your support today.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a href="/helper" class="bg-primary-glow text-white font-sans font-semibold px-6 py-3 rounded-lg text-center transition duration-300 ease-in-out transform hover:scale-105 btn-glow w-full sm:w-auto">
+                  Request Help Now
+                </a>
+                <a href="" class="join-us bg-opacity-20 bg-white hover:bg-opacity-30 text-white border-white font-sans font-semibold px-6 py-3 rounded-lg text-center transition duration-300 ease-in-out transform hover:scale-105 shadow-lg w-full sm:w-auto">
+                  Provide Relief
+                </a>
+              </div>
+            </div>
+            <!-- Right Side Content -->
+            <div class="w-full md:w-5/12 relative">
+              <img
+                src="/images/GlobalLiving-02.jpg"
+                alt="Volunteers helping during disaster"
+                class="rounded-xl shadow-2xl w-full h-auto object-cover"
+              />
+              <div class="absolute -bottom-5 -left-5 bg-white dark:bg-neutral-800 p-4 rounded-lg shadow-lg w-40">
+                <div class="text-sm font-semibold text-neutral-900 dark:text-white">SOS Requests</div>
+                <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">128</div>
+                <div class="text-xs text-neutral-500 dark:text-neutral-400">Active right now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>  
+    
+    <!-- registration modal -->
+
+    <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-50% right-0 left-50 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-md max-h-full">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                      Create New Account
+                  </h3>
+                  <button type="button" onclick="tabpopDown()" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                  </button>
+              </div>
+              <!-- Modal body -->
+              <form class="p-4 md:p-5">
+                  <div class="grid gap-4 mb-4 grid-cols-2">
+                      <div class="col-span-2">
+                          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name :</label>
+                          <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Name.." required="">
+                      </div>
+                      <div class="col-span-2">
+                          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Id :</label>
+                          <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Email Id.." required="">
+                      </div>
+                      <div class="col-span-2 sm:col-span-1 flex">
+                          <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Join As :</label>
+                          <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                              <option value="Organization">Organization</option>
+                              <option value="vendor">Vendor</option>
+                              <option value="volunteer">Volunteer</option>
+                          </select>
+                      </div>
+                      <div class="col-span-2">
+                          <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</label>
+                          <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write product description here"></textarea>                    
+                      </div>
+                  </div>
+                  <button type="submit" onclick="tabpopUp()" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                      Submit
+                  </button>
+              </form>
+          </div>
+      </div>
+  </div> 
+
+  <!-- success message -->
+  <div id="successModal" tabindex="-1" aria-hidden="true"
+  class="hidden fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/50">
+  <div class="relative p-6 w-full max-w-md bg-white rounded-lg shadow-lg dark:bg-gray-800">
+      <div class="flex flex-col items-center">
+          <div class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full dark:bg-green-900">
+              <svg aria-hidden="true" class="w-10 h-10 text-green-600 dark:text-green-400" fill="currentColor"
+                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"></path>
+              </svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Success</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">The operation was completed successfully.</p>
+      </div>
+
+      <!-- Close Button -->
+      <div class="mt-5 flex justify-center">
+          <button onclick="tabpopDown()"
+              class="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg shadow hover:bg-green-700 transition-all">
+              Close
+          </button>
+      </div>
+  </div>
+</div>
+
+    <!-- Features Section -->
+    <section id="features" class="hero-pattern text-white py-16 bg-neutral-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-sans font-bold text-neutral-900 mb-4">How Re-Leaf Link Works</h2>
+            <p class="text-neutral-700 text-lg max-w-3xl mx-auto">
+            Our platform bridges the gap between those who need help and those who can provide it, creating a seamless network of support during difficult times.
+            </p>
+        </div>
+    
+        <div class="grid grid-cols-1 text-black md:grid-cols-3 gap-8">
+            <!-- Feature Item -->
+            <div class="hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 bg-white rounded-xl p-6">
+                <div class="h-12 w-12 bg-red-500 rounded-full flex items-center justify-center mb-5">
+                    <!-- Replace with an actual icon -->
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5.464V3.099m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C19 17.4 19 18 18.462 18H5.538C5 18 5 17.4 5 16.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 12 5.464ZM6 5 5 4M4 9H3m15-4 1-1m1 5h1M8.54 18a3.48 3.48 0 0 0 6.92 0H8.54Z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-sans font-bold text-neutral-900 mb-3 text-black">Real-Time help request system</h3>
+                <p class="text-neutral-700">
+                    Bridging Lives and Relief in times oof disaster and floods, every second counts. Our Real-Time Help request System is designed to provide immediate support to those in need by connecting victims with a network of compassionate, or other basic necessities, our platform ensures no cry for help goes unheard.  
+                </p>
+                </div>
+                
+                <!-- Repeat for other features -->
+                <div class="hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 bg-white rounded-xl p-6">
+                <div class="h-12 w-12 bg-green-500 rounded-full flex items-center justify-center mb-5">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+                    <path d="M12.013 6.175 7.006 9.369l5.007 3.194-5.007 3.193L2 12.545l5.006-3.193L2 6.175l5.006-3.194 5.007 3.194ZM6.981 17.806l5.006-3.193 5.006 3.193L11.987 21l-5.006-3.194Z"/>
+                    <path d="m12.013 12.545 5.006-3.194-5.006-3.176 4.98-3.194L22 6.175l-5.007 3.194L22 12.562l-5.007 3.194-4.98-3.211Z"/>
+                  </svg>                  
+                </div>
+                <h3 class="text-xl font-sans font-bold text-neutral-900 mb-3 text-black">Resource Management System</h3>
+                <p class="text-neutral-700">
+                    Use AI-powered classification to categorize available resources (e.g., food, water, medical, supplies, shelter mterials). Use notifications (e.g., emails or app alerts) to streanilbe communication and task assignments. Track contributions from NGOs, volunteers, and vendors to evaluate availability and effort. 
+                </p>
+                </div>
+                
+                <div class="hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 bg-white rounded-xl p-6">
+                <div class="h-12 w-12 bg-blue-500 rounded-full flex items-center justify-center mb-5">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="white" stroke-linecap="round" stroke-width="2" d="M6 4v10m0 0a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m0 0v2m6-16v2m0 0a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m0 0v10m6-16v10m0 0a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m0 0v2"/>
+                  </svg>                  
+                </div>
+                <h3 class="text-xl font-sans font-bold text-neutral-900 mb-3 text-black">Material classification in Re-Leaf Link</h3>
+                <p class="text-neutral-700">
+                    Re-leaf link leverages Artificial Intelligence (AI) to classify materials accurately, ensuring effective resource utilization, sustainable waste managment, and enhanced aid distribution. By combining Optical Character Recognition (OCR) and Natural Language processing (NLP), this innovative system analyzes product labels and nutritional information to make intelligent decisions.
+                </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- map section -->
+    <section class="flex">
+      <div id="sidebar">
+        <h2>NGO Search</h2>
+        <input type="text" id="search-box" placeholder="Enter city...">
+        <select id="filter">
+            <option value="">All Relief Types</option>
+            <option value="Flood Relief">Flood Relief</option>
+            <option value="Medical Relief">Medical Relief</option>
+            <option value="Food Distribution">Food Distribution</option>
+            <option value="Disaster Response">Disaster Response</option>
+        </select>
+        <button onclick="searchNGOs()">Search</button>
+        <button onclick="resetSearch()">Reset</button>
+        <h3>Results:</h3>
+        <div id="search-results"></div>
+    </div>
+
+    <div id="map-container">
+        <div id="map"></div>
+        <div id="ngo-details" class="hidden"></div>
+        <div id="loading-indicator" class="hidden">Loading...</div>
+    </div>
+    </section>
+
+
+
+
+
+    <!-- Benefits Section -->
+<section id="benefits" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-sans font-bold text-neutral-900 mb-4">Why Join Re-Leaf Link</h2>
+        <p class="text-neutral-700 text-lg max-w-3xl mx-auto">
+          Our platform brings together all stakeholders in disaster relief, creating a more effective and coordinated response system.
+        </p>
+      </div>
+  
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- For Individuals -->
+        <div class="bg-neutral-100 rounded-xl p-6 md:p-8">
+          <div class="text-center mb-6">
+            <div class="h-15 w-40 rounded-lg bg-blue-100 flex items-center justify-center mx-auto mb-4">
+              <span class="text-blue-500 text-2xl"><img src="/images/IMG_20250328_190102_211.jpg" alt="" class="rounded-lg"></span>
+            </div>
+            <h3 class="text-2xl font-sans font-bold text-neutral-900">For Individuals</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Quick access to emergency support during disasters</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Simplified request process for when you need help most</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Real-time updates on available resources nearby</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Opportunity to volunteer and help others in need</span>
+            </li>
+          </ul>
+          <div class="mt-8 text-center">
+            <a href="/helper" class="bg-blue-500 text-white py-2 px-4 rounded-lg transition hover:bg-blue-600">Request Help</a>
+          </div>
+        </div>
+  
+        <!-- For Organizations -->
+        <div class="bg-neutral-100 rounded-xl p-6 md:p-8">
+          <div class="text-center mb-6">
+            <div class="h-15 w-40 rounded-lg bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-purple-500 text-2xl"><img src="/images/registration-online-membership-network-internet-business-technology-concept-104512007.webp" alt="" class="rounded-lg"></span>
+            </div>
+            <h3 class="text-2xl font-sans font-bold text-neutral-900">For Organizations</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Better resource allocation and distribution tracking</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Enhanced coordination with other relief providers</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Direct connection to those who need help most</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Comprehensive reporting for donors and stakeholders</span>
+            </li>
+          </ul>
+          <div class="mt-8 text-center">
+            <a href="" class="join-us bg-green-600 text-white py-2 px-4 rounded-lg transition hover:bg-purple-600">Register Organization</a>
+          </div>
+        </div>
+  
+        <!-- For Vendors -->
+        <div class="bg-neutral-100 rounded-xl p-6 md:p-8">
+          <div class="text-center mb-6">
+            <div class="h-15 w-40 rounded-lg bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-orange-500 text-2xl"><img src="/images/volunteering-7347096_640.jpg" alt="" class="rounded-lg"></span>
+            </div>
+            <h3 class="text-2xl font-sans font-bold text-neutral-900">For Vendors</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Streamlined process to offer supplies during disasters</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Connect directly with organizations needing supplies</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Inventory management for relief goods</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mt-1 mr-2">&#10003;</span>
+              <span>Increased visibility in the relief supply chain</span>
+            </li>
+          </ul>
+          <div class="mt-8 text-center">
+            <a href="" class="join-us bg-purple-600 text-white  py-2 px-4 rounded-lg transition hover:bg-orange-600">Become a Vendor / Volunteer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    <!-- Making A Difference Section -->
+<section class="bg-black py-16 bg-neutral-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-sans font-bold mb-4">Making A Difference</h2>
+        <p class="text-neutral-300 text-lg max-w-3xl mx-auto">
+          See the impact our platform has made in disaster relief efforts around the world.
+        </p>
+      </div>
+  
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <!-- Emergency Requests Fulfilled -->
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-sans font-bold text-blue-500 mb-2">2,543</div>
+          <div class="text-neutral-300">Emergency Requests Fulfilled</div>
+        </div>
+        <!-- Organizations Registered -->
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-sans font-bold text-purple-500 mb-2">128</div>
+          <div class="text-neutral-300">Organizations Registered</div>
+        </div>
+        <!-- Vendors Providing Supplies -->
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-sans font-bold text-orange-500 mb-2">475</div>
+          <div class="text-neutral-300">Vendors Providing Supplies</div>
+        </div>
+        <!-- Active Volunteers -->
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-sans font-bold text-green-500 mb-2">8,200+</div>
+          <div class="text-neutral-300">Active Volunteers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Team Section with Group Image -->
+<section id="team" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Group Image -->
+      <div class="mb-12">
+          <img src="https://images.pexels.com/photos/556416/pexels-photo-556416.jpeg?cs=srgb&dl=landscape-mountains-nature-556416.jpg&fm=jpg"
+              alt="Our Team" class="rounded-lg object-cover group-photo shadow-md" />
+      </div>
+
+      <!-- Section Heading -->
+      <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-sans font-bold text-neutral-900 mb-4">Meet Our Team</h2>
+          <p class="text-neutral-700 text-lg max-w-3xl mx-auto">
+              Re-Leaf Link was built by a dedicated team passionate about using technology to help people in times of crisis.
+          </p>
+      </div>
+
+      <!-- Team Member Profiles -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Daksh Dixit (Backend Developer) -->
+          <div class="bg-neutral-100 rounded-xl p-6 text-center">
+              <img src="https://static.vecteezy.com/system/resources/previews/022/156/235/large_2x/backend-icon-design-illustration-vector.jpg" alt="Daksh Dixit"
+                  class="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
+              <h3 class="text-xl text-black font-sans font-bold text-neutral-900 mb-1">Daksh Dixit</h3>
+              <p class="text-blue-500 font-medium mb-3">Backend Developer & Team Leader</p>
+              <p class="text-neutral-700 text-sm mb-4">
+                  Specializes in backend development with Node.js, Express, and MongoDB. Leads the team and ensures smooth system integration.
+              </p>
+          </div>
+
+          <!-- Tushar Varshney (Frontend Developer) -->
+          <div class="bg-neutral-100 rounded-xl p-6 text-center">
+              <img src="https://static.vecteezy.com/system/resources/previews/031/010/476/original/front-end-icon-vector.jpg" alt="Tushar Varshney"
+                  class="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
+              <h3 class="text-xl text-black font-sans font-bold text-neutral-900 mb-1">Tushar Varshney</h3>
+              <p class="text-blue-500 font-medium mb-3">Frontend Developer</p>
+              <p class="text-neutral-700 text-sm mb-4">
+                  Works on the client-side interface, ensuring an intuitive and responsive experience using modern frontend frameworks.
+              </p>
+          </div>
+
+          <!-- Ujjwal Paliwal (AI Developer) -->
+          <div class="bg-neutral-100 rounded-xl p-6 text-center">
+              <img src="https://static.vecteezy.com/system/resources/previews/036/392/006/original/digital-brain-ai-logo-template-free-vector.jpg" alt="Ujjwal Paliwal"
+                  class="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
+              <h3 class="text-xl text-black font-sans font-bold text-neutral-900 mb-1">Ujjwal Paliwal</h3>
+              <p class="text-blue-500 font-medium mb-3">AI Developer</p>
+              <p class="text-neutral-700 text-sm mb-4">
+                  Expert in Python, TensorFlow, and Matplotlib, building intelligent systems for material classification and analysis.
+              </p>
+          </div>
+
+          <!-- Shivi Chauhan (UI/UX Developer) -->
+          <div class="bg-neutral-100 rounded-xl p-6 text-center">
+              <img src="https://static.vecteezy.com/system/resources/previews/005/232/583/non_2x/a-flat-style-of-ui-ux-design-icon-vector.jpg" alt="Shivi Chauhan"
+                  class="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
+              <h3 class="text-xl text-black font-sans font-bold text-neutral-900 mb-1">Shivi Chauhan</h3>
+              <p class="text-blue-500 font-medium mb-3">UI/UX Developer</p>
+              <p class="text-neutral-700 text-sm mb-4">
+                  Designs and optimizes user interfaces for seamless navigation, ensuring an engaging experience for all users.
+              </p>
+          </div>
+
+      </div>
+  </div>
+</section>
+
+  
+
+    <!-- SOS Request Section -->
+    <section id="sos" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+              <h2 class="text-3xl md:text-4xl font-sans font-bold text-neutral-900 mb-4">Contact Us</h2>
+              <p class="text-neutral-700 text-lg max-w-3xl mx-auto">
+                Give us your feedback or if you have any questions fill the form here.
+              </p>
+          </div>
+      </div>
+
+      <div class="bg-neutral-100 rounded-xl p-6 md:p-8 shadow-lg max-w-4xl mx-auto">
+      <form class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="md:col-span-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+              <label for="name" class="block font-medium text-neutral-700">Full Name</label>
+              <input
+                  type="text"
+                  id="name"
+                  placeholder="Your full name"
+                  class="mt-1 p-2 w-full border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-5"
+              />
+              </div>
+          </div>
+              <label for="description" class="block font-medium text-neutral-700">Describe Your Situation</label>
+              <textarea
+              id="description"
+              placeholder="Please provide details about your emergency..."
+              rows="4"
+              class="mt-1 p-2 w-full border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              ></textarea>
+          </div>
+          </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="mt-8 flex justify-center">
+            <button type="submit"
+                class="bg-blue-500 text-white text-lg font-sans font-semibold px-8 py-3 
+                       rounded-lg shadow-md transition-all duration-300 ease-in-out transform 
+                       hover:bg-blue-600 hover:scale-105 active:scale-95">
+                Send Mail
+            </button>
+        </div>        
+      </form>
+      </div>
+
+      <!-- Note Section -->
+      <div class="mt-12 flex justify-center">
+          <div class="bg-red-100 border-l-4 border-red-500 p-4 max-w-2xl">
+              <div class="flex">
+                  <div class="flex-shrink-0">
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      class="text-red-500 h-6 w-6"
+                      >
+                      <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 16h-1v-4h-1m2-4h.01M12 3.25a9 9 0 1 1-6.32 15.07"
+                      />
+                      </svg>
+                  </div>
+                  <div class="ml-3">
+                      <p class="text-sm text-neutral-700">
+                      <strong>Note:</strong> This platform is designed to connect you with relief organizations and volunteers. For life-threatening emergencies, please also call your local emergency number.
+                      </p>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <!-- CTA Section -->
+<section class="py-16 bg-blue-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white bg-opacity-10 rounded-xl p-8 md:p-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-sans font-bold text-white mb-6">
+          Join Us in Making a Difference
+        </h2>
+        <p class="text-white text-lg md:text-xl opacity-90 mb-8 max-w-3xl mx-auto">
+          Whether you need help, can offer assistance, or want to volunteer your time, Re-leaf Link brings everyone together for more effective disaster response.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <!-- Request Help Button -->
+          <a
+            href="/helper"
+            class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg text-lg transition w-full sm:w-auto text-center"
+          >
+            Request Help
+          </a>
+          <!-- Provide Relief Button -->
+          <Button size="lg"
+            class="bg-accent hover:bg-accent-dark text-white w-full sm:w-auto join-us"
+          >
+            Provide Relief
+        </Button>
+          <!-- Document & Upload Button -->
+          <a
+            href="/ocr"
+            class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg text-lg transition w-full sm:w-auto text-center"
+          >
+            Document & Upload
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Footer Section -->
+<footer class="bg-black text-white  pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-blue-500 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"
+              />
+            </svg>
+            <span class="font-sans font-bold text-xl">Re-leaf Link</span>
+          </div>
+          <p class="text-neutral-400 mb-4">
+            Connecting those in need with those who can help during disasters and emergencies.
+          </p>
+          <div class="flex space-x-4">
+            <!-- Social Media Links -->
+            <a href="#" class="text-neutral-400 hover:text-blue-500 transition-colors" aria-label="Twitter">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" role="img">
+                <path d="M24 4.557c-.883.392-1.83.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.896-.953-2.173-1.548-3.591-1.548-2.72 0-4.928 2.208-4.928 4.93 0 .386.043.763.127 1.125C7.691 8.094 4.066 6.13 1.64 3.161c-.423.727-.666 1.57-.666 2.475 0 1.71.87 3.213 2.19 4.096-.807-.026-1.566-.247-2.228-.616v.062c0 2.388 1.698 4.384 3.946 4.836-.413.113-.847.171-1.296.171-.316 0-.624-.031-.927-.089.625 1.953 2.444 3.376 4.6 3.415-1.68 1.318-3.808 2.104-6.115 2.104-.398 0-.791-.023-1.17-.068 2.179 1.398 4.768 2.215 7.548 2.215 9.057 0 14.01-7.512 14.01-14.01 0-.213-.005-.426-.014-.637.961-.693 1.797-1.56 2.457-2.549z" />
+              </svg>
+            </a>
+            
+            <a href="#" class="text-neutral-400 hover:text-blue-500 transition-colors" aria-label="Facebook">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" role="img">
+                <path d="M22.675 0h-21.35c-.731 0-1.325.594-1.325 1.326v21.348c0 .731.594 1.326 1.325 1.326h11.495v-9.294h-3.128v-3.622h3.128v-2.672c0-3.1 1.893-4.788 4.656-4.788 1.325 0 2.462.099 2.794.143v3.24l-1.917.001c-1.504 0-1.794.715-1.794 1.763v2.313h3.589l-.467 3.622h-3.122v9.294h6.116c.729 0 1.324-.595 1.324-1.326v-21.348c0-.732-.595-1.326-1.325-1.326z" />
+              </svg>
+            </a>
+            
+            <a href="#" class="text-neutral-400 hover:text-pink-500 transition-colors" aria-label="Instagram">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" role="img">
+                <path d="M12 2.163c3.204 0 3.584.012 4.849.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.068 1.645.068 4.849s-.012 3.584-.07 4.849c-.148 3.225-1.664 4.771-4.919 4.919-1.265.058-1.645.068-4.849.068s-3.584-.012-4.849-.07c-3.225-.148-4.771-1.664-4.919-4.919-.058-1.265-.068-1.645-.068-4.849s.012-3.584.07-4.849c.148-3.225 1.664-4.771 4.919-4.919 1.265-.058 1.645-.068 4.849-.068zm0-2.163c-3.259 0-3.67.012-4.947.07-4.329.194-6.842 2.711-7.035 7.035-.059 1.277-.07 1.688-.07 4.947s.012 3.67.07 4.947c.193 4.329 2.711 6.842 7.035 7.035 1.277.059 1.688.07 4.947.07s3.67-.012 4.947-.07c4.329-.193 6.842-2.711 7.035-7.035.059-1.277.07-1.688.07-4.947s-.012-3.67-.07-4.947c-.193-4.329-2.711-6.842-7.035-7.035-1.277-.059-1.688-.07-4.947-.07z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="border-t border-neutral-800 pt-8 text-center text-neutral-500 text-sm">
+        <p>
+          © 2025 Re-leaf Link. All rights reserved. |
+          <a href="#" class="hover:text-white">Privacy Policy</a> |
+          <a href="#" class="hover:text-white">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- map script -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+  <!-- script  -->
+   <script src="/js/script.js" ></script>
+</body>
+</html>

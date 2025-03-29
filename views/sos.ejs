@@ -1,0 +1,10 @@
+<h2>Send an SOS</h2>
+<button popovertarget="send">form</button>
+ <form action="/sos/send" method="POST" popover id="send">
+   <input type="text" name="name" placeholder="Your Name" required>
+   <input type="text" name="city" placeholder="City" required>
+   <input type="text" name="state" placeholder="State" required>
+   <input type="text" name="phone" placeholder="Phone" required>
+   <textarea name="message" placeholder="Your Message" required></textarea>
+   <button type="submit">Send SOS</button>
+ </form>

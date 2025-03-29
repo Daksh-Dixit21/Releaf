@@ -1,0 +1,871 @@
+[
+  {
+    "name": "Flashlight (with Batteries)",
+    "category": "Other Amenities",
+    "weight": 0.3,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High",
+    "quantity": 6
+  },
+  {
+    "name": "Batteries (Assorted)",
+    "category": "Other Amenities",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High",
+    "quantity": null
+  },
+  {
+    "name": "Portable Radio (Battery)",
+    "category": "Other Amenities",
+    "weight": 0.4,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Duct Tape (Roll)",
+    "category": "Other Amenities",
+    "weight": 0.25,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium",
+    "quantity": 1
+  },
+  {
+    "name": "Rope (15m)",
+    "category": "Other Amenities",
+    "weight": 0.4,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium",
+    "quantity": 1
+  },
+  {
+    "name": "Tarpaulin (Medium)",
+    "category": "Other Amenities",
+    "weight": 0.7,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium",
+    "quantity": 1
+  },
+  {
+    "name": "Sanitary Pads/Tampons",
+    "category": "Other Amenities",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 10,
+    "priority": "High"
+  },
+  {
+    "name": "Baby Wipes",
+    "category": "Other Amenities",
+    "weight": 0.4,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 50,
+    "priority": "High"
+  },
+  {
+    "name": "Paper Towels (Roll)",
+    "category": "Other Amenities",
+    "weight": 0.3,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Trash Bags (Medium)",
+    "category": "Other Amenities",
+    "weight": 0.15,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0
+    },
+    "servingSize": 10,
+    "priority": "Low"
+  },
+  {
+    "name": "Whistle",
+    "category": "Other Amenities",
+    "weight": 0.02,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Hand Sanitizer",
+    "category": "Other Amenities",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Matches (Waterproof)",
+    "category": "Other Amenities",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Candles",
+    "category": "Other Amenities",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Work Gloves (Lightweight)",
+    "category": "Other Amenities",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Compass",
+    "category": "Other Amenities",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Pencil and Paper",
+    "category": "Other Amenities",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Low"
+  },
+  {
+    "name": "Manual Can Opener",
+    "category": "Other Amenities",
+    "weight": 0.15,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Plastic Bags (Resealable)",
+    "category": "Other Amenities",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0
+    },
+    "servingSize": 20,
+    "priority": "Medium"
+  },
+  {
+    "name": "Safety Pins",
+    "category": "Other Amenities",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0
+    },
+    "servingSize": 20,
+    "priority": "Low"
+  },
+  {
+    "name": "Thermal Blankets",
+    "category": "Clothing",
+    "weight": 0.3,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Warm Scarves",
+    "category": "Clothing",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Lightweight Gloves",
+    "category": "Clothing",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Heavy-Duty Rain Jackets",
+    "category": "Clothing",
+    "weight": 0.8,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Waterproof Pants",
+    "category": "Clothing",
+    "weight": 0.6,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Thermal Underwear Sets",
+    "category": "Clothing",
+    "weight": 0.5,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Hiking Boots (Waterproof)",
+    "category": "Clothing",
+    "weight": 1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Wool Socks",
+    "category": "Clothing",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Disposable Rain Ponchos",
+    "category": "Clothing",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Low"
+  },
+  {
+    "name": "Dust Masks/Respirators",
+    "category": "Clothing",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Eye Protection (Goggles)",
+    "category": "Clothing",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Sun Hats/Caps",
+    "category": "Clothing",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Sturdy Work Pants",
+    "category": "Clothing",
+    "weight": 0.7,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "High-Visibility Vests",
+    "category": "Clothing",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Cotton Blankets",
+    "category": "Clothing",
+    "weight": 0.5,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Cotton Scarves",
+    "category": "Clothing",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Bandanas",
+    "category": "Clothing",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Handkerchiefs",
+    "category": "Clothing",
+    "weight": 0.02,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Men's Underwear (Pack)",
+    "category": "Clothing",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 3,
+    "priority": "High"
+  },
+  {
+    "name": "Women's Underwear (Pack)",
+    "category": "Clothing",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 3,
+    "priority": "High"
+  },
+  {
+    "name": "Children's Underwear (Pack)",
+    "category": "Clothing",
+    "weight": 0.15,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 3,
+    "priority": "High"
+  },
+  {
+    "name": "T-shirts (Pack)",
+    "category": "Clothing",
+    "weight": 0.4,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 3,
+    "priority": "High"
+  },
+  {
+    "name": "Energy Bars",
+    "category": "Food",
+    "weight": 0.3,
+    "nutrition": {
+      "protein": 20,
+      "calcium": 10,
+      "carbs": 30
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Milk Powder (500g)",
+    "category": "Food",
+    "weight": 0.5,
+    "nutrition": {
+      "protein": 35,
+      "calcium": 40,
+      "carbs": 50
+    },
+    "servingSize": 5,
+    "priority": "High"
+  },
+  {
+    "name": "Canned Beans",
+    "category": "Food",
+    "weight": 0.4,
+    "nutrition": {
+      "protein": 10,
+      "calcium": 5,
+      "carbs": 25
+    },
+    "servingSize": 2,
+    "priority": "High"
+  },
+  {
+    "name": "Rice (1kg)",
+    "category": "Food",
+    "weight": 1,
+    "nutrition": {
+      "protein": 8,
+      "calcium": 2,
+      "carbs": 80
+    },
+    "servingSize": 4,
+    "priority": "High"
+  },
+  {
+    "name": "Instant Noodles",
+    "category": "Food",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 6,
+      "calcium": 3,
+      "carbs": 50
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Peanut Butter",
+    "category": "Food",
+    "weight": 0.5,
+    "nutrition": {
+      "protein": 25,
+      "calcium": 5,
+      "carbs": 20
+    },
+    "servingSize": 10,
+    "priority": "High"
+  },
+  {
+    "name": "Canned Tuna",
+    "category": "Food",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 30,
+      "calcium": 2,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Crackers",
+    "category": "Food",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 5,
+      "calcium": 2,
+      "carbs": 70
+    },
+    "servingSize": 5,
+    "priority": "Medium"
+  },
+  {
+    "name": "Dried Fruit (Assorted)",
+    "category": "Food",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 3,
+      "calcium": 5,
+      "carbs": 60
+    },
+    "servingSize": 5,
+    "priority": "Medium"
+  },
+  {
+    "name": "Nuts (Assorted)",
+    "category": "Food",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 20,
+      "calcium": 10,
+      "carbs": 15
+    },
+    "servingSize": 5,
+    "priority": "High"
+  },
+  {
+    "name": "Granola",
+    "category": "Food",
+    "weight": 0.3,
+    "nutrition": {
+      "protein": 10,
+      "calcium": 5,
+      "carbs": 60
+    },
+    "servingSize": 3,
+    "priority": "Medium"
+  },
+  {
+    "name": "Oatmeal (Instant)",
+    "category": "Food",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 15,
+      "calcium": 10,
+      "carbs": 60
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Canned Fruit",
+    "category": "Food",
+    "weight": 0.5,
+    "nutrition": {
+      "protein": 1,
+      "calcium": 3,
+      "carbs": 20
+    },
+    "servingSize": 2,
+    "priority": "Medium"
+  },
+  {
+    "name": "Cooking Oil (Small Bottle)",
+    "category": "Food",
+    "weight": 0.5,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 20,
+    "priority": "Medium"
+  },
+  {
+    "name": "Salt",
+    "category": "Food",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1000,
+    "priority": "Medium"
+  },
+  {
+    "name": "Pain Reliever (Ibuprofen/Paracetamol)",
+    "category": "Medicine",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 20,
+    "priority": "High"
+  },
+  {
+    "name": "Antiseptic Wipes",
+    "category": "Medicine",
+    "weight": 0.2,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 50,
+    "priority": "High"
+  },
+  {
+    "name": "Bandages (Assorted Sizes)",
+    "category": "Medicine",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 30,
+    "priority": "High"
+  },
+  {
+    "name": "Gauze Pads",
+    "category": "Medicine",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 20,
+    "priority": "High"
+  },
+  {
+    "name": "Medical Tape",
+    "category": "Medicine",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Antibiotic Ointment",
+    "category": "Medicine",
+    "weight": 0.03,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "High"
+  },
+  {
+    "name": "Oral Rehydration Salts (ORS)",
+    "category": "Medicine",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 20,
+    "priority": "High"
+  },
+  {
+    "name": "Antidiarrheal Medication",
+    "category": "Medicine",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 10,
+    "priority": "Medium"
+  },
+  {
+    "name": "Antihistamine Tablets",
+    "category": "Medicine",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 10,
+    "priority": "Medium"
+  },
+  {
+    "name": "Tweezers",
+    "category": "Medicine",
+    "weight": 0.02,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Scissors (Medical)",
+    "category": "Medicine",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Thermometer (Digital)",
+    "category": "Medicine",
+    "weight": 0.03,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Latex-Free Gloves (Pack)",
+    "category": "Medicine",
+    "weight": 0.1,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 10,
+    "priority": "High"
+  },
+  {
+    "name": "Splints (Assorted Sizes)",
+    "category": "Medicine",
+    "weight": 0.5,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 3,
+    "priority": "Medium"
+  },
+  {
+    "name": "Burn Cream",
+    "category": "Medicine",
+    "weight": 0.05,
+    "nutrition": {
+      "protein": 0,
+      "calcium": 0,
+      "carbs": 0
+    },
+    "servingSize": 1,
+    "priority": "Medium"
+  },
+  {
+    "name": "Energy Bars",
+    "category": "Food",
+    "weight": 0.3,
+    "priority": 5
+  }
+]

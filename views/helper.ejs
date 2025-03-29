@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask For Help</title>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav>
+        <div id="back-btn"><a href="/">Back to home</a></div>
+        <div id="logo"><img src="/images/reportlogo.png" alt="logo"></div>
+    </nav>
+
+    <header>
+        <input type="text" id="city-search" placeholder="Search by city">
+        <select id="type-filter">
+            <option value="all">All Types</option>
+            <option value="organization">Organisation</option>
+            <option value="vendor">Vendor</option>
+            <option value="volunteer">Volunteer</option>
+        </select>
+    </header>
+
+    <div id="help-btn">
+        <a href="#">Send An SOS Mail</a>
+    </div>
+
+    <div id="list-container">
+        <h3>Results</h3>
+        <div id="user-list">
+            <% users.forEach(user => { %>
+                <div class="user-card">
+                    <h4><%= user.name %></h4>
+                    <p>Email: <%= user.email || "N/A" %></p>
+                    <p>Phone: <%= user.phone || "N/A" %></p>
+                    <p>City: <%= user.city %></p>
+                    <p>State: <%= user.state %></p>
+                    <p>Type: <%= user.role ? user.role.toUpperCase() : "Unknown Type" %></p>
+                </div>
+            <% }); %>
+        </div>
+        <div class="pagination"></div>
+    </div>
+
+    <footer>
+        <h5>Contact Releaf Link</h5>
+    </footer>
+<script>
+        let users = <%- JSON.stringify(users) %>;
+
+document.addEventListener("DOMContentLoaded", () => {
+    applyFilters();
+
+    document.getElementById("help-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const formPopup = document.createElement("div");
+    formPopup.className = "popup-overlay";
+    formPopup.innerHTML = `
+        <div class="popup-content">
+            <h2>Send an SOS</h2>
+            <form id="sos-form">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="text" id="city" name="city" placeholder="City" required>
+                <input type="text" id="state" name="state" placeholder="State" required>
+                <input type="text" id="phone" name="phone" placeholder="Phone" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-btn">Send SOS</button>
+                <button type="button" class="cancel-btn">Cancel</button>
+            </form>
+        </div>
+    `;
+
+    document.body.appendChild(formPopup);
+
+    document.querySelector(".cancel-btn").addEventListener("click", () => {
+        document.body.removeChild(formPopup);
+    });
+
+    document.getElementById("sos-form").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        // Extract form data
+        const name = document.getElementById("name").value.trim();
+        const city = document.getElementById("city").value.trim();
+        const state = document.getElementById("state").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Remove the form popup
+        document.body.removeChild(formPopup);
+
+        // Show loading screen
+        const loadingScreen = document.createElement("div");
+        loadingScreen.className = "loading-screen";
+        loadingScreen.innerHTML = `
+            <div class="loader"></div>
+            <p>Sending SOS Mail...</p>
+        `;
+        document.body.appendChild(loadingScreen);
+
+        // Send request to backend
+        try {
+            let response = await fetch("/sos/send", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name, city, state, phone, message }),
+            });
+
+            if (response.ok) {
+                document.body.removeChild(loadingScreen);
+
+                const confirmationPopup = document.createElement("div");
+                confirmationPopup.className = "popup-overlay";
+                confirmationPopup.innerHTML = `
+                    <div class="popup-content">
+                        <h2>✅ Mail Sent Successfully!</h2>
+                        <p>Your SOS request has been sent. We hope help reaches you soon.</p>
+                        <button class="close-btn">Close</button>
+                    </div>
+                `;
+
+                document.body.appendChild(confirmationPopup);
+                document.querySelector(".close-btn").addEventListener("click", () => {
+                    document.body.removeChild(confirmationPopup);
+                });
+            } else {
+                throw new Error("Failed to send SOS request.");
+            }
+        } catch (error) {
+            console.error(error);
+            document.body.removeChild(loadingScreen);
+            alert("⚠️ Error: Unable to send SOS request. Please try again.");
+        }
+    });
+});
+});
+
+let currentPage = 1;
+const resultsPerPage = 10;
+
+function displayUsers(filteredUsers) {
+    const userList = document.getElementById("user-list");
+    userList.innerHTML = "";
+
+    const paginationDiv = document.querySelector(".pagination");
+    paginationDiv.innerHTML = "";
+
+    const totalPages = Math.ceil(filteredUsers.length / resultsPerPage);
+    const start = (currentPage - 1) * resultsPerPage;
+    const end = start + resultsPerPage;
+    const paginatedUsers = filteredUsers.slice(start, end);
+
+    if (filteredUsers.length === 0) {
+        userList.innerHTML = `<p>No results found.</p>`;
+        return;
+    }
+
+    paginatedUsers.forEach(user => {
+        const userCard = document.createElement("div");
+        userCard.className = "user-card";
+        userCard.innerHTML = `
+            <div>
+                <h4>${user.name}</h4>
+                <p>City: ${user.city}</p>
+                <p>Type: ${user.role ? user.role.toUpperCase() : "Unknown role"}</p>
+                <p>Contact: ${user.email || user.phone || "No contact info"}</p>
+            </div>
+            <button class="share-btn" onclick="shareProfile('${user.name}')">Share</button>
+        `;
+        userList.appendChild(userCard);
+    });
+
+    for (let i = 1; i <= totalPages; i++) {
+        let btn = document.createElement("button");
+        btn.innerText = i;
+        btn.className = i === currentPage ? "selected" : "";
+        btn.onclick = () => { currentPage = i; applyFilters(); };
+        paginationDiv.appendChild(btn);
+    }
+}
+
+function applyFilters() {
+    const cityFilter = document.getElementById("city-search").value.trim().toLowerCase();
+    const typeFilter = document.getElementById("type-filter").value.toLowerCase();
+
+    let filteredUsers = users.filter(user =>
+        (cityFilter === "" || user.city.toLowerCase().includes(cityFilter)) &&
+        (typeFilter === "all" || (user.role && user.role.toLowerCase() === typeFilter))
+    );
+
+    displayUsers(filteredUsers);
+}
+
+function shareProfile(userName) {
+    const user = users.find(u => u.name === userName);
+    let contactInfo = user ? (user.phone || user.email || "No contact info available") : "User not found.";
+
+    navigator.clipboard.writeText(contactInfo)
+        .then(() => alert(`Copied: ${contactInfo}`))
+        .catch(() => alert("Failed to copy contact info."));
+}
+
+document.querySelectorAll("header input, header select").forEach(input =>
+    input.addEventListener("input", applyFilters)
+);
+</script>
+</body>
+</html>

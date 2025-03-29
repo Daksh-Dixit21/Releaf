@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    background-color: #333;
+    padding: 0.75rem;
+    position: relative;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #cbd5e0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* Page Container */
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #2563eb;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* Language Selector */
+.language-selector {
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
+
+.language-selector select {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.375rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.language-selector select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Blog Container */
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Blog Cards */
+.blog-card {
+    width: 320px;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.blog-card h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.blog-card .read-more {
+    background-color: #2563eb;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.blog-card .read-more:hover {
+    background-color: #1d4ed8;
+}
+
+/* Popup Modal */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.popup.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    max-width: 800px;
+    width: 95%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.popup.show .popup-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.popup-content h2 {
+    color: #2563eb;
+    margin-bottom: 1rem;
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+.popup-content p {
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+/* Close Button */
+.popup-close {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+.popup-close button {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.375rem;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.popup-close button:hover {
+    background-color: #bbb;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .blog-card {
+        width: 90%;
+    }
+}
+
+    </style>
+   </head>
+<body>
+    <nav>
+        <a href="/">Back to Home</a>
+    </nav>
+    <div class="container">
+        <h1>Survival Tips and Blogs</h1>
+        <div class="language-selector">
+            <label for="languageSelect">Change Language:</label>
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en" <%= language === 'en' ? 'selected' : '' %>>English</option>
+                <option value="hi" <%= language === 'hi' ? 'selected' : '' %>>Hindi</option>
+                <option value="ta" <%= language === 'ta' ? 'selected' : '' %>>Tamil</option>
+                <option value="bn" <%= language === 'bn' ? 'selected' : '' %>>Bengali</option>
+            </select>
+        </div>
+
+        <div class="blog-container" id="blogs-container">
+            <% blogs.forEach(blog => { %>
+                <div class="blog-card">
+                    <h2><%= blog.title %></h2>
+                    <a href="#" class="read-more" onclick="showPopup('<%= blog._id %>')">Read More</a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <div class="popup" id="blog-popup">
+        <div class="popup-content">
+            <div class="popup-close">
+                <button onclick="closePopup()">Close</button>
+            </div>
+            <div id="popup-content"></div>
+            <small id="popup-published"></small>
+        </div>
+    </div>
+
+    <script>
+        function changeLanguage(lang) {
+            window.location.href = "/blogs?lang=" + lang;
+        }
+
+        function showPopup(blogId) {
+            const blog = blogs.find(b => b._id === blogId);
+
+            if (blog) {
+                document.getElementById('popup-content').innerHTML = blog.content;
+                document.getElementById('popup-published').textContent = new Date(blog.createdAt).toLocaleDateString();
+                document.getElementById('blog-popup').classList.add('show');
+            } else {
+                alert("Error: Blog content not found.");
+            }
+        }
+
+        function closePopup() {
+            document.getElementById('blog-popup').classList.remove('show');
+        }
+    </script>
+    <script>
+        let blogs = <%- JSON.stringify(blogs) %>;
+    </script>
+</body>
+</html>

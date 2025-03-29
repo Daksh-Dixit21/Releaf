@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Tailwind  -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- style.css -->
+     <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+
+  <header class="bg-gray-800 text-white py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="text-2xl font-bold tracking-wide">
+          Re-leaf Link
+        </a>
+        <!-- Navigation -->
+        <nav class="hidden md:flex space-x-6">
+          <a href="/" class="hover:text-blue-400 transition duration-300">
+            Home
+          </a>
+          <a href="#features" class="hover:text-blue-400 transition duration-300">
+            Features
+          </a>
+          <a href="/helper" class="hover:text-blue-400 transition duration-300">
+            Request SOS
+          </a>
+          <a href="/" class="hover:text-blue-400 transition duration-300">
+            Contact Us
+          </a>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-white focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <!-- Document & Upload Section -->
+  <section class="bg-black">
+    <div class="text-white min-h-screen pb-16 pt-10 ">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 ">
+          <h1 class="text-3xl md:text-4xl font-sans font-bold text-neutral-900 mb-4">
+            Document & Upload
+          </h1>
+          <p class="text-neutral-700 text-lg max-w-3xl mx-auto">
+            Upload images of disaster situations or relief supplies for AI-powered text extraction and analysis.
+          </p>
+        </div>
+    
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Upload Image Card -->
+          <div class="hero-pattern rounded-xl shadow-lg p-6">
+            <div class="mb-4">
+              <h3 class="text-xl font-sans font-bold text-neutral-900">Upload Image</h3>
+              <p class="text-neutral-700 text-sm">
+                Upload an image containing text. Our system will extract the text automatically.
+              </p>
+            </div>
+            <form class="space-y-6" method="POST" action="/ocr/upload" enctype="multipart/form-data">
+              <!-- Image Upload Field -->
+              <div>
+                <label for="image" class="block font-medium text-neutral-700">Image</label>
+                <input
+                  type="file"
+                  id="image"
+                  accept="image/jpeg, image/png"
+                  class="mt-1 p-2 w-full border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <!-- Submit Button -->
+              <div class="flex justify-center mt-6">
+                <button
+                  type="submit"
+                  class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 rounded-md flex items-center gap-2 transition"
+                >
+                  Upload
+                </button>
+              </div>
+            </form>
+          </div>
+    
+          <!-- Extracted Text Card -->
+          <div class="hero-pattern rounded-xl shadow-lg p-6">
+            <div class="mb-4">
+              <h3 class="text-xl font-sans font-bold text-neutral-900">Extracted Text</h3>
+              <% if (typeof error !== 'undefined' && error) { %>
+                <p style="color: red;"><%= error %></p>
+              <% } %>
+              <p class="text-neutral-700 text-sm">
+                The text extracted from your uploaded image will appear here.
+              </p>
+            </div>
+            <div class="flex flex-col items-center justify-center py-12 text-center text-neutral-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-16 w-16 text-neutral-400 mb-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.5 10.5l-.5 4m-.5-4h-1M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2m-2 0a2 2 0 112 2m-6 0a2 2 0 10-2-2"
+                />
+              </svg>
+              <h3 class="text-lg font-medium mb-2">No Text Extracted Yet</h3>
+              <p class="text-sm max-w-xs">
+                Upload an image containing text and we'll extract the content automatically.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
+  <!-- Footer Section -->
+<footer class="bg-black text-white  pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <!-- About ReliefConnect -->
+        <div>
+          <div class="flex items-center mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-blue-500 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"
+              />
+            </svg>
+            <span class="font-sans font-bold text-xl">ReliefConnect</span>
+          </div>
+          <p class="text-neutral-400 mb-4">
+            Connecting those in need with those who can help during disasters and emergencies.
+          </p>
+          <div class="flex space-x-4">
+            <!-- Social Media Links -->
+            <a href="#" class="text-neutral-400 hover:text-blue-500 transition-colors">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 4.557c-.883.392-1.83.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.896-.953-2.173-1.548-3.591-1.548-2.72 0-4.928 2.208-4.928 4.93 0 .386.043.763.127 1.125C7.691 8.094 4.066 6.13 1.64 3.161c-.423.727-.666 1.57-.666 2.475 0 1.71.87 3.213 2.19 4.096-.807-.026-1.566-.247-2.228-.616v.062c0 2.388 1.698 4.384 3.946 4.836-.413.113-.847.171-1.296.171-.316 0-.624-.031-.927-.089.625 1.953 2.444 3.376 4.6 3.415-1.68 1.318-3.808 2.104-6.115 2.104-.398 0-.791-.023-1.17-.068 2.179 1.398 4.768 2.215 7.548 2.215 9.057 0 14.01-7.512 14.01-14.01 0-.213-.005-.426-.014-.637.961-.693 1.797-1.56 2.457-2.549z" />
+              </svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-blue-500 transition-colors">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.675 0h-21.35c-.731 0-1.325.594-1.325 1.326v21.348c0 .731.594 1.326 1.325 1.326h11.495v-9.294h-3.128v-3.622h3.128v-2.672c0-3.1 1.893-4.788 4.656-4.788 1.325 0 2.462.099 2.794.143v3.24l-1.917.001c-1.504 0-1.794.715-1.794 1.763v2.313h3.589l-.467 3.622h-3.122v9.294h6.116c.729 0 1.324-.595 1.324-1.326v-21.348c0-.732-.595-1.326-1.325-1.326z" />
+              </svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-pink-500 transition-colors">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.849.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.068 1.645.068 4.849s-.012 3.584-.07 4.849c-.148 3.225-1.664 4.771-4.919 4.919-1.265.058-1.645.068-4.849.068s-3.584-.012-4.849-.07c-3.225-.148-4.771-1.664-4.919-4.919-.058-1.265-.068-1.645-.068-4.849s.012-3.584.07-4.849c.148-3.225 1.664-4.771 4.919-4.919 1.265-.058 1.645-.068 4.849-.068zm0-2.163c-3.259 0-3.67.012-4.947.07-4.329.194-6.842 2.711-7.035 7.035-.059 1.277-.07 1.688-.07 4.947s.012 3.67.07 4.947c.193 4.329 2.711 6.842 7.035 7.035 1.277.059 1.688.07 4.947.07s3.67-.012 4.947-.07c4.329-.193 6.842-2.711 7.035-7.035.059-1.277.07-1.688.07-4.947s-.012-3.67-.07-4.947c-.193-4.329-2.711-6.842-7.035-7.035-1.277-.059-1.688-.07-4.947-.07z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- Add other sections (Quick Links, Resources, Contact) similarly -->
+      </div>
+  
+      <div class="border-t border-neutral-800 pt-8 text-center text-neutral-500 text-sm">
+        <p>
+          © 2025 ReliefConnect. All rights reserved. |
+          <a href="#" class="hover:text-white">Privacy Policy</a> |
+          <a href="#" class="hover:text-white">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <% if (extractedText) { %>
+    <h3>Extracted Text:</h3>
+    <p><%= extractedText %></p>
+
+    <h3>Cleaned Text:</h3>
+    <p><%= cleanedText %></p>
+
+    <h3>AI Generated Response:</h3>
+    <p><%- generatedResponse %></p>
+
+    <h3>Status:</h3>
+    <p style="font-weight: bold; color: <%= status === 'Non-biodegradable' ? 'red' : 'green' %>;">
+        <%= status %>
+    </p>
+<% } %>
+
+   <!-- script  -->
+   <script src="script.js" ></script>
+</body>
+</html>

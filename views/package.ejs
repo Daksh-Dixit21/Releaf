@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Package</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        let selectedItems = {};
+
+        function updateQuantity(itemId, name, weight, priority, change) {
+            if (!selectedItems[itemId]) {
+                selectedItems[itemId] = { id: itemId, name, quantity: 0, weight, priority };
+            }
+            selectedItems[itemId].quantity += change;
+            if (selectedItems[itemId].quantity < 0) selectedItems[itemId].quantity = 0;
+            document.getElementById(`qty-${itemId}`).innerText = selectedItems[itemId].quantity;
+        }
+
+        function submitPackage() {
+            const packageName = document.getElementById("packageName").value.trim();
+            if (!packageName) {
+                alert("Package name is required!");
+                return;
+            }
+
+            const createdByName = document.getElementById("createdByName").value.trim();
+            const createdByEmail = document.getElementById("createdByEmail").value.trim();
+
+            if (!createdByName || !createdByEmail) {
+                alert("Created By Name and Email are required!");
+                return;
+            }
+
+            const itemsToSend = Object.values(selectedItems).filter(item => item.quantity > 0);
+            if (itemsToSend.length === 0) {
+                alert("Please select at least one item.");
+                return;
+            }
+
+            const packageData = { 
+                name: packageName, 
+                items: itemsToSend,
+                createdBy: { name: createdByName, email: createdByEmail } 
+            };
+
+            fetch("/package", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(packageData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert("Error: " + data.error);
+                } else if (data._id) {
+                    alert("Package created successfully!");
+                    window.location.href = `/package/report/${data._id}`;
+                } else {
+                    alert("Error: Package ID missing in response.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</head>
+<body class="bg-[#0B1E37] text-gray-200 font-sans">
+    <div class="max-w-4xl mx-auto mt-10 p-8 bg-[#132A46] shadow-lg rounded-lg">
+        <h2 class="text-3xl font-bold text-center mb-6 text-white">Create a Package</h2>
+
+        <label class="block font-semibold text-gray-300">Package Name:</label>
+        <input type="text" id="packageName" class="w-full p-2 border rounded bg-gray-700 text-white mb-4" placeholder="Enter package name" required>
+
+        <h3 class="text-xl font-semibold mt-4 text-white">Created By</h3>
+        <label class="block font-semibold text-gray-300">Your Name:</label>
+        <input type="text" id="createdByName" class="w-full p-2 border rounded bg-gray-700 text-white mb-2" placeholder="Enter your name" required>
+
+        <label class="block font-semibold text-gray-300">Your Email:</label>
+        <input type="email" id="createdByEmail" class="w-full p-2 border rounded bg-gray-700 text-white mb-4" placeholder="Enter your email" required>
+
+        <h3 class="text-xl font-semibold mt-4 text-white">Select Items</h3>
+        <table class="w-full border-collapse mt-4">
+            <thead>
+                <tr class="bg-green-600 text-white">
+                    <th class="p-2">Name</th>
+                    <th class="p-2">Category</th>
+                    <th class="p-2">Weight (kg)</th>
+                    <th class="p-2">Priority</th>
+                    <th class="p-2">Quantity</th>
+                    <th class="p-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% items.forEach(item => { %>
+                    <tr class="border-b text-gray-300">
+                        <td class="p-2"><%= item.name %></td>
+                        <td class="p-2"><%= item.category %></td>
+                        <td class="p-2"><%= item.weight %></td>
+                        <td class="p-2"><%= item.priority %></td>
+                        <td class="p-2 text-center" id="qty-<%= item._id %>">0</td>
+                        <td class="p-2 flex space-x-2">
+                            <button class="bg-green-500 text-white px-3 py-1 rounded transition-all duration-300 hover:bg-green-700" onclick="updateQuantity('<%= item._id %>', '<%= item.name %>', <%= item.weight %>, '<%= item.priority %>', 1)">+</button>
+                            <button class="bg-red-500 text-white px-3 py-1 rounded transition-all duration-300 hover:bg-red-700" onclick="updateQuantity('<%= item._id %>', '<%= item.name %>', <%= item.weight %>, '<%= item.priority %>', -1)">-</button>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <button onclick="submitPackage()" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded mt-6 transition-all duration-300 hover:bg-blue-700">Save Package</button>
+    </div>
+</body>
+</html>

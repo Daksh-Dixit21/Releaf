@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        h2 { text-align: center; }
+        .error { color: red; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>OCR Result</h2>
+
+        <% if (status === "error") { %>
+            <p class="error"><%= errorMessage %></p>
+        <% } else { %>
+            <p><strong>Extracted Text:</strong> <%= extractedText || "N/A" %></p>
+            <p><strong>Cleaned Text:</strong> <%= cleanedText || "N/A" %></p>
+            <p><strong>Generated Response:</strong> <%= generatedResponse || "N/A" %></p>
+        <% } %>
+
+        <br>
+        <a href="/upload">Upload Another Image</a>
+    </div>
+</body>
+</html>
