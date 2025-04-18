@@ -42,10 +42,12 @@
                 <% if (!extractedText) { %>
                     <p class="text-gray-500">No text extracted yet. Upload an image to process.</p>
                 <% } else { %>
+                     <!-- -->
                     <p class="font-semibold">Extracted Text:</p>
                     <p class="text-gray-700"><%= extractedText %></p>
                     <p class="font-semibold mt-2">Cleaned Text:</p>
                     <p class="text-gray-700"><%= cleanedText %></p>
+                    <!--  -->
                     <p class="font-semibold mt-2">AI Generated Response:</p>
                     <p class="text-gray-700"><%- generatedResponse %></p>
                     <p class="font-semibold mt-2">Status:</p>

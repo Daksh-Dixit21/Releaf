@@ -60,9 +60,26 @@ async def upload_image(file: UploadFile = File(...)):
         cleaned_text = preprocess_text(extracted_text)
         print(f"Cleaned Text: {cleaned_text}")
 
+        # Build prompt for Gemini
+        prompt = f"""
+You are an expert in food sustainability and disaster relief planning.
+
+Based on the extracted information from the product label below, provide brief and practical bullet-point answers to these questions:
+
+1. What is the estimated shelf life of a product like this, both unopened and after being opened or left unpackaged? Base your answer on any ingredients, preservatives, or packaging clues.
+2. Could this product be useful in disaster or emergency situations (e.g., floods, earthquakes, refugee camps)? If so, how?
+3. What are any potential concerns or limitations when storing or using this product in such scenarios?
+
+Extracted Product Information:
+\"\"\"{cleaned_text}\"\"\"
+
+Keep the answers concise, actionable, and written for a relief website.
+"""
+
+
         # Generate content using Generative AI
         try:
-            response = model.generate_content(cleaned_text)
+            response = model.generate_content(prompt)
             print(f"Generated Response: {response.text}")
             generated_text = response.text
 
